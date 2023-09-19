@@ -25,28 +25,32 @@ if DEV_MODE:
     st.write("state = ", st.session_state)
 
 # write history of messages
-for msg in st.session_state.messages:
+for msg in st.session_state.messages[:1]:
     st.chat_message(msg["role"]).write(msg["content"])
 
 # Display buttons only if none has been clicked yet
-if st.session_state["mode"] is None:
-    if not st.session_state["button_clicked"]:
-        if st.button("Create a quiz"):
-            st.session_state["mode"] = "quiz"
-            st.session_state.messages.clear()
-            msg = {"role": "assistant", "content": "Briefly explain what topic you want a quiz about, and how many questions are desired."}
-            st.session_state.messages.append(msg)
-            st.chat_message("assistant").write(msg["content"])
-            st.session_state["button_clicked"] = True
-            st.experimental_rerun()
-        if st.button("Create a lesson plan"):
-            st.session_state["mode"] = "lesson"
-            st.session_state.messages.clear()
-            msg = {"role": "assistant", "content": "What topic would you like the lesson plan about? Provide all desired details."}
-            st.session_state.messages.append(msg)
-            st.chat_message("assistant").write(msg["content"])
-            st.session_state["button_clicked"] = True
-            st.experimental_rerun()
+if st.session_state["mode"] == "lesson" or st.button("Create a quiz", disabled=st.session_state["button_clicked"]):
+    if st.session_state["mode"] is None:
+        st.session_state["mode"] = "quiz"
+        #st.session_state.messages.clear()
+        msg = {"role": "assistant", "content": "Briefly explain what topic you want a quiz about, and how many questions are desired."}
+        st.session_state.messages.append(msg)
+        st.chat_message("assistant").write(msg["content"])
+        st.session_state["button_clicked"] = True
+        st.experimental_rerun()
+
+if st.session_state["mode"] == "quiz" or st.button("Create a lesson plan", disabled=st.session_state["button_clicked"]):
+    if st.session_state["mode"] is None:
+        st.session_state["mode"] = "lesson"
+        #st.session_state.messages.clear()
+        msg = {"role": "assistant", "content": "What topic would you like the lesson plan about? Provide all desired details."}
+        st.session_state.messages.append(msg)
+        st.chat_message("assistant").write(msg["content"])
+        st.session_state["button_clicked"] = True
+        st.experimental_rerun()
+
+for msg in st.session_state.messages[1:]:
+    st.chat_message(msg["role"]).write(msg["content"])
 
 if st.session_state["mode"] is not None:
     if prompt := st.chat_input():
