@@ -61,7 +61,7 @@ if st.session_state["mode"] is not None:
         st.session_state.messages.append({"role": "user", "content": prompt})
         st.chat_message("user").write(prompt)
         st.session_state.messages.append({"role": "user", "content": f"Give me the {'quiz with the answers as well and make it multiple choice please' if st.session_state['mode'] == 'quiz' else 'lesson plan in detail and well-formatted please'}"})
-        st.session_state.messages.append({"role": "user", "content": ""})
+        st.session_state.messages.append({"role": "user", "content": "Also, please don't preface your messages with introductory phrases, instead be straight to the point (get to answering straight away)"})
         st.chat_message("assistant").write("Generating...This may take a while")
         response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=st.session_state.messages)
         msg = response.choices[0].message
