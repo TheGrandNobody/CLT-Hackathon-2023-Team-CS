@@ -4,6 +4,7 @@ import streamlit as st
 # Initialize session state variable if not present
 if "mode" not in st.session_state:
     st.session_state["mode"] = None # | "quiz" | "lesson"
+    st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
 
 with st.sidebar:
     openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password")
@@ -12,8 +13,6 @@ with st.sidebar:
 
 st.title("📝 Edion Content Generator V1")
 st.caption("🚀 A content-generator made by Edion Management Systems")
-if "messages" not in st.session_state:
-    st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
 
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
@@ -28,7 +27,7 @@ if st.session_state["mode"] is None:
         st.chat_message("assistant").write(msg["content"])
 
     else:
-        if st.session_state["mode"] is None:
+        if st.session_state["mode"] != "quiz" :
             st.session_state["mode"] = "lesson"
             st.button("Create a lesson plan")
 
