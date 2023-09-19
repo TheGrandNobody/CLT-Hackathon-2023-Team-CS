@@ -27,13 +27,14 @@ if st.session_state["mode"] is None:
         st.session_state.messages.append(msg)
         st.chat_message("assistant").write(msg["content"])
 
-    if st.button("Create a lesson plan"):
-        st.session_state["mode"] = "quiz"
-        print("button2 clicked!")
+    else:
+        if st.session_state["mode"] is None:
+            st.session_state["mode"] = "lesson"
+            st.button("Create a lesson plan")
 
-        msg = {"role": "assistant", "content": "What topic would you like the lesson plan about? Provide all desired details."}
-        st.session_state.messages.append(msg)
-        st.chat_message("assistant").write(msg["content"])
+            msg = {"role": "assistant", "content": "What topic would you like the lesson plan about? Provide all desired details."}
+            st.session_state.messages.append(msg)
+            st.chat_message("assistant").write(msg["content"])
 else:
     if prompt := st.chat_input():
         if not openai_api_key:
