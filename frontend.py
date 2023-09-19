@@ -25,8 +25,9 @@ if DEV_MODE:
     st.write("state = ", st.session_state)
 
 # write history of messages
-for msg in st.session_state.messages[:1]:
-    st.chat_message(msg["role"]).write(msg["content"])
+if st.session_state["mode"] is None:
+    for msg in st.session_state.messages[:1]:
+        st.chat_message(msg["role"]).write(msg["content"])
 
 # Display buttons only if none has been clicked yet
 if st.session_state["mode"] == "lesson" or st.button("Create a quiz", disabled=st.session_state["button_clicked"]):
@@ -42,7 +43,6 @@ if st.session_state["mode"] == "lesson" or st.button("Create a quiz", disabled=s
 if st.session_state["mode"] == "quiz" or st.button("Create a lesson plan", disabled=st.session_state["button_clicked"]):
     if st.session_state["mode"] is None:
         st.session_state["mode"] = "lesson"
-        #st.session_state.messages.clear()
         msg = {"role": "assistant", "content": "What topic would you like the lesson plan about? Provide all desired details."}
         st.session_state.messages.append(msg)
         st.chat_message("assistant").write(msg["content"])
