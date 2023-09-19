@@ -88,7 +88,7 @@ def get_quiz_for_prompt(messages: List[Dict], openai_api_key: str, max_tries: in
         raw_answer = msg.content[msg.content.index("["):msg.content.rindex("]")+1]
 
         # try to read as json and validate
-        print("response = ", raw_answer)
+        print("\nresponse = ", raw_answer)
         try:
             quiz_dict = json.loads(raw_answer)
             result, problem = validate_question_format(quiz_dict)
@@ -101,7 +101,7 @@ def get_quiz_for_prompt(messages: List[Dict], openai_api_key: str, max_tries: in
     print(f"Failed to get quiz from chatgpt after {max_tries} attempts :(")
     return (None, history)
 
-def generate_quiz_pdf(quiz_data: Dict, fname: str):
+def generate_pdf(quiz_data: Dict, fname: Optional[str] = None):
     """Conver quiz dictionary object to a pdf file (written to disk)."""
     buffer = BytesIO()
     c = canvas.Canvas(buffer, pagesize=letter)
@@ -138,9 +138,11 @@ def generate_quiz_pdf(quiz_data: Dict, fname: str):
     pdf_data = buffer.getvalue()
     buffer.close()
 
-    print(f"writing pdf to {fname}")
-    with open(fname, "wb") as f:
-        f.write(pdf_data)
+    if fname is not None:
+        print(f"writing pdf to {fname}")
+        with open(fname, "wb") as f:
+            f.write(pdf_data)
+    return pdf_data
 
 if __name__ == "__main__":
     result, message = validate_question_format(EXAMPLE_QUIZ)
@@ -159,5 +161,5 @@ if __name__ == "__main__":
     print(f"using workDir = '{work_dir}'")
     fname = os.path.join(work_dir, "quiz.pdf")
 
-    generate_quiz_pdf(EXAMPLE_QUIZ, fname)
+    generate_pdf(EXAMPLE_QUIZ, fname)
     import pdb; pdb.set_trace()
