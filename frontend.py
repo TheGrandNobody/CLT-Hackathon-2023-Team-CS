@@ -1,7 +1,8 @@
 import openai
 import streamlit as st
 import os
-print("1", st.session_state)
+
+DEV_MODE = os.environ.get("DEV") == "1"
 # Initialize session state variable if not present
 if "mode" not in st.session_state:
     st.session_state["mode"] = None # | "quiz" | "lesson"
@@ -20,6 +21,9 @@ if openai_api_key is None:
 st.title("📝 Edion Content Generator V1")
 st.caption("🚀 A content-generator made by Edion Management Systems")
 
+if DEV_MODE:
+    st.write("state = ", st.session_state)
+
 # write history of messages
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
@@ -34,7 +38,6 @@ if st.session_state["mode"] is None:
             st.session_state.messages.append(msg)
             st.chat_message("assistant").write(msg["content"])
             st.session_state["button_clicked"] = True
-            print("2", st.session_state)
             st.experimental_rerun()
         if st.button("Create a lesson plan"):
             st.session_state["mode"] = "lesson"
@@ -43,7 +46,6 @@ if st.session_state["mode"] is None:
             st.session_state.messages.append(msg)
             st.chat_message("assistant").write(msg["content"])
             st.session_state["button_clicked"] = True
-            print("3", st.session_state)
             st.experimental_rerun()
 
 if st.session_state["mode"] is not None:
