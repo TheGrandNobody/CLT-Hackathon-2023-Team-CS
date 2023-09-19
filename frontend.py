@@ -1,7 +1,7 @@
 import openai
 import streamlit as st
 import os
-
+print("1", st.session_state)
 # Initialize session state variable if not present
 if "mode" not in st.session_state:
     st.session_state["mode"] = None # | "quiz" | "lesson"
@@ -9,8 +9,6 @@ if "mode" not in st.session_state:
 if "button_clicked" not in st.session_state:
     st.session_state["button_clicked"] = False
     st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
-else:
-    st.session_state["messages"] = []
 
 openai_api_key = os.environ.get("OPENAI_KEY")
 if openai_api_key is None:
@@ -31,17 +29,22 @@ if st.session_state["mode"] is None:
     if not st.session_state["button_clicked"]:
         if st.button("Create a quiz"):
             st.session_state["mode"] = "quiz"
+            st.session_state.messages.clear()
             msg = {"role": "assistant", "content": "Briefly explain what topic you want a quiz about, and how many questions are desired."}
             st.session_state.messages.append(msg)
             st.chat_message("assistant").write(msg["content"])
             st.session_state["button_clicked"] = True
-    if not st.session_state["button_clicked"]:
+            print("2", st.session_state)
+            st.experimental_rerun()
         if st.button("Create a lesson plan"):
             st.session_state["mode"] = "lesson"
+            st.session_state.messages.clear()
             msg = {"role": "assistant", "content": "What topic would you like the lesson plan about? Provide all desired details."}
             st.session_state.messages.append(msg)
             st.chat_message("assistant").write(msg["content"])
             st.session_state["button_clicked"] = True
+            print("3", st.session_state)
+            st.experimental_rerun()
 
 if st.session_state["mode"] is not None:
     if prompt := st.chat_input():
