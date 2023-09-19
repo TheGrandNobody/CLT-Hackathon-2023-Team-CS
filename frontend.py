@@ -2,8 +2,8 @@ import openai
 import streamlit as st
 
 # Initialize session state variable if not present
-if "button_clicked" not in st.session_state:
-    st.session_state["button_clicked"] = False
+if "mode" not in st.session_state:
+    st.session_state["mode"] = None # | "quiz" | "lesson"
 
 with st.sidebar:
     openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password")
@@ -31,19 +31,21 @@ if prompt := st.chat_input():
     st.chat_message("assistant").write(msg.content)
 
 # Display buttons only if none has been clicked yet
-if not st.session_state["button_clicked"]:
-    if st.button(""):
-        st.session_state["button_clicked"] = True
+if st.session_state["mode"] is None:
+    if st.button("Create a quiz"):
+        st.session_state["mode"] = "quiz"
+        print("button1 clicked!")
         # Do something when Button 1 is clicked
+
+        msg = {"role": "assistant", "content": "Briefly explain what topic you want a quiz about, and how many questions are desired."}
+        st.session_state.messages.append(msg)
+        st.chat_message("assistant").write(msg["content"])
+
+    if st.button("Create a lesson plan"):
+        st.session_state["mode"] = "quiz"
+        print("button2 clicked!")
+
+        msg = {"role": "assistant", "content": "What topic would you like the lesson plan about? Provide all desired details."}
+        st.session_state.messages.append(msg)
+        st.chat_message("assistant").write(msg["content"])
         
-    if st.button(""):
-        st.session_state["button_clicked"] = True
-        # Do something when Button 2 is clicked
-        
-    if st.button(""):
-        st.session_state["button_clicked"] = True
-        # Do something when Button 3 is clicked
-        
-else:
-    # Display another interface if a button has been clicked
-    
