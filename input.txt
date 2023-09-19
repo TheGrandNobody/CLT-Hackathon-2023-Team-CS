@@ -1,0 +1,2 @@
+Generate me a mathematics Calculus quiz on the topic of derivatives which solely includes the product rule, chain rule and quotient rule. It should contain 20 questions with 4 options and 1 correct answer per question. 
+Each question should be answered in less than 3 minutes. Once you are done generating the quiz, generate the answer sheet as well.

@@ -1,0 +1,334 @@
+### Calculus Quiz on Derivatives
+
+#### Instructions:
+- Answer each question in less than 3 minutes.
+- Choose the correct option for each question.
+
+---
+
+#### Question 1: (Product Rule)
+Find the derivative of \( f(x) = x^2 \sin(x) \).
+
+**Options:**
+1. \( 2x \cos(x) \)
+2. \( x^2 \cos(x) + 2x \sin(x) \)
+3. \( x^2 \cos(x) - 2x \sin(x) \)
+4. \( 2x \sin(x) + x^2 \cos(x) \)
+
+---
+
+#### Question 2: (Quotient Rule)
+Find the derivative of \( f(x) = \frac{x^2}{\cos(x)} \).
+
+**Options:**
+1. \( \frac{x^2 \sin(x) + 2x \cos(x)}{\cos^2(x)} \)
+2. \( \frac{x^2 \sin(x) - 2x \cos(x)}{\cos^2(x)} \)
+3. \( \frac{2x \cos(x) - x^2 \sin(x)}{\cos^2(x)} \)
+4. \( \frac{2x \cos(x) + x^2 \sin(x)}{\cos^2(x)} \)
+
+---
+
+#### Question 3: (Quotient Rule)
+Find the derivative of \( f(x) = \frac{\sin(x)}{x} \).
+
+**Options:**
+1. \( \frac{x \cos(x) - \sin(x)}{x^2} \)
+2. \( \frac{x \cos(x) + \sin(x)}{x^2} \)
+3. \( \frac{\cos(x) - x \sin(x)}{x^2} \)
+4. \( \frac{\cos(x) + x \sin(x)}{x^2} \)
+
+---
+
+#### Question 4: (Product Rule)
+Find the derivative of \( f(x) = x \ln(x) \).
+
+**Options:**
+1. \( \ln(x) + 1 \)
+2. \( \ln(x) - 1 \)
+3. \( x \ln(x) + 1 \)
+4. \( x \ln(x) - 1 \)
+
+---
+
+#### Question 5: (Quotient Rule)
+Find the derivative of \( f(x) = \frac{e^x}{x} \).
+
+**Options:**
+1. \( \frac{e^x (x - 1)}{x^2} \)
+2. \( \frac{e^x (x + 1)}{x^2} \)
+3. \( \frac{e^x (1 - x)}{x^2} \)
+4. \( \frac{e^x (1 + x)}{x^2} \)
+
+---
+
+#### Question 6: (Product Rule)
+Find the derivative of \( f(x) = x e^{-x} \).
+
+**Options:**
+1. \( e^{-x} - x e^{-x} \)
+2. \( e^{-x} + x e^{-x} \)
+3. \( e^{-x} - x e^{x} \)
+4. \( e^{-x} + x e^{x} \)
+
+---
+
+#### Question 7: (Product Rule)
+Find the derivative of \( f(x) = x^3 \cos(x) \).
+
+**Options:**
+1. \( 3x^2 \cos(x) - x^3 \sin(x) \)
+2. \( 3x^2 \cos(x) + x^3 \sin(x) \)
+3. \( 3x^2 \sin(x) - x^3 \cos(x) \)
+4. \( 3x^2 \sin(x) + x^3 \cos(x) \)
+
+---
+
+#### Question 8: (Chain Rule)
+Find the derivative of \( f(x) = \sin(x^2) \).
+
+**Options:**
+1. \( 2x \cos(x^2) \)
+2. \( 2x \sin(x^2) \)
+3. \( x^2 \cos(x^2) \)
+4. \( x^2 \sin(x^2) \)
+
+---
+
+#### Question 9: (Quotient Rule)
+Find the derivative of \( f(x) = \frac{\ln(x)}{x} \).
+
+**Options:**
+1. \( \frac{1 - \ln(x)}{x^2} \)
+2. \( \frac{1 + \ln(x)}{x^2} \)
+3. \( \frac{\ln(x) - 1}{x^2} \)
+4. \( \frac{\ln(x) + 1}{x^2} \)
+
+---
+
+#### Question 10: (Product Rule)
+Find the derivative of \( f(x) = x^4 e^x \).
+
+**Options:**
+1. \( 4x^3 e^x + x^4 e^x \)
+2. \( 4x^3 e^x - x^4 e^x \)
+3. \( x^4 e^x + 4x^3 e^x \)
+4. \( x^4 e^x - 4x^3 e^x \)
+
+---
+
+#### Question 11: (Product Rule)
+Find the derivative of \( f(x) = x \tan(x) \).
+
+**Options:**
+1. \( \tan(x) + x \sec^2(x) \)
+2. \( \tan(x) - x \sec^2(x) \)
+3. \( \tan(x) + x \cos^2(x) \)
+4. \( \tan(x) - x \cos^2(x) \)
+
+---
+
+#### Question 12: (Product Rule)
+Find the derivative of \( f(x) = x^5 \ln(x) \).
+
+**Options:**
+1. \( 5x^4 \ln(x) + x^4 \)
+2. \( 5x^4 \ln(x) - x^4 \)
+3. \( x^5 \ln(x) + 5x^4 \)
+4. \( x^5 \ln(x) - 5x^4 \)
+
+---
+
+#### Question 13: (Quotient Rule)
+Find the derivative of \( f(x) = \frac{x}{\ln(x)} \).
+
+**Options:**
+1. \( \frac{\ln(x) - 1}{\ln^2(x)} \)
+2. \( \frac{\ln(x) + 1}{\ln^2(x)} \)
+3. \( \frac{1 - \ln(x)}{\ln^2(x)} \)
+4. \( \frac{1 + \ln(x)}{\ln^2(x)} \)
+
+---
+
+#### Question 14: (Quotient Rule)
+Find the derivative of \( f(x) = \frac{\tan(x
+
+)}{x} \).
+
+**Options:**
+1. \( \frac{x \sec^2(x) - \tan(x)}{x^2} \)
+2. \( \frac{x \sec^2(x) + \tan(x)}{x^2} \)
+3. \( \frac{\sec^2(x) - x \tan(x)}{x^2} \)
+4. \( \frac{\sec^2(x) + x \tan(x)}{x^2} \)
+
+---
+
+#### Question 15: (Quotient Rule)
+Find the derivative of \( f(x) = \frac{\cos(x)}{x^2} \).
+
+**Options:**
+1. \( \frac{-x \sin(x) - 2 \cos(x)}{x^3} \)
+2. \( \frac{-x \sin(x) + 2 \cos(x)}{x^3} \)
+3. \( \frac{x \sin(x) - 2 \cos(x)}{x^3} \)
+4. \( \frac{x \sin(x) + 2 \cos(x)}{x^3} \)
+
+---
+
+#### Question 16: (Product Rule)
+Find the derivative of \( f(x) = x^2 \tan(x) \).
+
+**Options:**
+1. \( 2x \tan(x) + x^2 \sec^2(x) \)
+2. \( 2x \tan(x) - x^2 \sec^2(x) \)
+3. \( x^2 \tan(x) + 2x \sec^2(x) \)
+4. \( x^2 \tan(x) - 2x \sec^2(x) \)
+
+---
+
+#### Question 17: (Chain Rule)
+Find the derivative of \( f(x) = \cos(x^3) \).
+
+**Options:**
+1. \( -3x^2 \sin(x^3) \)
+2. \( 3x^2 \sin(x^3) \)
+3. \( -3x^2 \cos(x^3) \)
+4. \( 3x^2 \cos(x^3) \)
+
+---
+
+#### Question 18: (Product Rule)
+Find the derivative of \( f(x) = x \cos(x^2) \).
+
+**Options:**
+1. \( \cos(x^2) - 2x^2 \sin(x^2) \)
+2. \( \cos(x^2) + 2x^2 \sin(x^2) \)
+3. \( \cos(x^2) - x^2 \sin(x^2) \)
+4. \( \cos(x^2) + x^2 \sin(x^2) \)
+
+---
+
+#### Question 19: (Product Rule)
+Find the derivative of \( f(x) = x^2 \ln(x) \).
+
+**Options:**
+1. \( 2x \ln(x) + x \)
+2. \( 2x \ln(x) - x \)
+3. \( x^2 \ln(x) + 2x \)
+4. \( x^2 \ln(x) - 2x \)
+
+---
+
+#### Question 20: (Quotient Rule)
+Find the derivative of \( f(x) = \frac{x^3}{\sin(x)} \).
+
+**Options:**
+1. \( \frac{3x^2 \sin(x) - x^3 \cos(x)}{\sin^2(x)} \)
+2. \( \frac{3x^2 \sin(x) + x^3 \cos(x)}{\sin^2(x)} \)
+3. \( \frac{x^3 \cos(x) - 3x^2 \sin(x)}{\sin^2(x)} \)
+4. \( \frac{x^3 \cos(x) + 3x^2 \sin(x)}{\sin^2(x)} \)
+
+---
+
+Would you like to proceed with generating the answer sheet?
+### Calculus Quiz on Derivatives: Answer Sheet
+
+---
+
+#### Question 1: (Product Rule)
+**Answer:** 4. \( 2x \sin(x) + x^2 \cos(x) \)
+
+---
+
+#### Question 2: (Quotient Rule)
+**Answer:** 4. \( \frac{2x \cos(x) + x^2 \sin(x)}{\cos^2(x)} \)
+
+---
+
+#### Question 3: (Quotient Rule)
+**Answer:** 1. \( \frac{x \cos(x) - \sin(x)}{x^2} \)
+
+---
+
+#### Question 4: (Product Rule)
+**Answer:** 1. \( \ln(x) + 1 \)
+
+---
+
+#### Question 5: (Quotient Rule)
+**Answer:** 1. \( \frac{e^x (x - 1)}{x^2} \)
+
+---
+
+#### Question 6: (Product Rule)
+**Answer:** 1. \( e^{-x} - x e^{-x} \)
+
+---
+
+#### Question 7: (Product Rule)
+**Answer:** 1. \( 3x^2 \cos(x) - x^3 \sin(x) \)
+
+---
+
+#### Question 8: (Chain Rule)
+**Answer:** 1. \( 2x \cos(x^2) \)
+
+---
+
+#### Question 9: (Quotient Rule)
+**Answer:** 1. \( \frac{1 - \ln(x)}{x^2} \)
+
+---
+
+#### Question 10: (Product Rule)
+**Answer:** 1. \( 4x^3 e^x + x^4 e^x \)
+
+---
+
+#### Question 11: (Product Rule)
+**Answer:** 1. \( \tan(x) + x \sec^2(x) \)
+
+---
+
+#### Question 12: (Product Rule)
+**Answer:** 1. \( 5x^4 \ln(x) + x^4 \)
+
+---
+
+#### Question 13: (Quotient Rule)
+**Answer:** 1. \( \frac{\ln(x) - 1}{\ln^2(x)} \)
+
+---
+
+#### Question 14: (Quotient Rule)
+**Answer:** 1. \( \frac{x \sec^2(x) - \tan(x)}{x^2} \)
+
+---
+
+#### Question 15: (Quotient Rule)
+**Answer:** 1. \( \frac{-x \sin(x) - 2 \cos(x)}{x^3} \)
+
+---
+
+#### Question 16: (Product Rule)
+**Answer:** 1. \( 2x \tan(x) + x^2 \sec^2(x) \)
+
+---
+
+#### Question 17: (Chain Rule)
+**Answer:** 1. \( -3x^2 \sin(x^3) \)
+
+---
+
+#### Question 18: (Product Rule)
+**Answer:** 1. \( \cos(x^2) - 2x^2 \sin(x^2) \)
+
+---
+
+#### Question 19: (Product Rule)
+**Answer:** 1. \( 2x \ln(x) + x \)
+
+---
+
+#### Question 20: (Quotient Rule)
+**Answer:** 1. \( \frac{3x^2 \sin(x) - x^3 \cos(x)}{\sin^2(x)} \)
+
+---
