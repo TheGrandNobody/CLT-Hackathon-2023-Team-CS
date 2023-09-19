@@ -1,7 +1,13 @@
-
-from typing import Dict, List, Tuple, Optional
-import openai
+import os
 import json
+from io import BytesIO
+import openai
+import tempfile
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.units import inch
+from reportlab.pdfgen import canvas
+from typing import Dict, List, Tuple, Optional
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def validate_question_format(question_list: List) -> Tuple[bool, str]:
     # Check if input is a list
@@ -55,12 +61,6 @@ EXAMPLE_QUIZ = [
     }
 ]
 
-"""
-result, message = validate_question_format(EXAMPLE_QUIZ)
-print(result)  # Should print True
-print(message)  # Should print ""
-"""
-
 
 def get_quiz_for_prompt(messages: List[Dict], openai_api_key: str, max_tries: int = 4) -> Tuple[Optional[Dict], List[Dict]]:
     """
@@ -101,9 +101,63 @@ def get_quiz_for_prompt(messages: List[Dict], openai_api_key: str, max_tries: in
     print(f"Failed to get quiz from chatgpt after {max_tries} attempts :(")
     return (None, history)
 
+def generate_quiz_pdf(quiz_data: Dict, fname: str):
+    """Conver quiz dictionary object to a pdf file (written to disk)."""
+    buffer = BytesIO()
+    c = canvas.Canvas(buffer, pagesize=letter)
+    width, height = letter
 
+    y_position = height - 50
 
+    # Generate questions
+    for i, question in enumerate(quiz_data):
+        y_position -= 50
+        c.drawString(100, y_position, f"{i + 1}. {question['q']}")
+        
+        for j, option in enumerate(question['options']):
+            y_position -= 20
+            c.drawString(120, y_position, f"{chr(65+j)}. {option}")
+            
+        # Check for end of page
+        if y_position < 50:
+            c.showPage()
+            y_position = height - 50
 
+    # Create a new page for answers
+    c.showPage()
+    y_position = height - 50
+    c.drawString(100, y_position, "Answers:")
 
+    for i, question in enumerate(quiz_data):
+        y_position -= 20
+        #correct_answer = question['options'][question['a_index']]
+        correct_answer = chr(ord("A") + question['a_index'])
+        c.drawString(120, y_position, f"{i + 1}. {correct_answer}")
 
+    c.save()
+    pdf_data = buffer.getvalue()
+    buffer.close()
 
+    print(f"writing pdf to {fname}")
+    with open(fname, "wb") as f:
+        f.write(pdf_data)
+
+if __name__ == "__main__":
+    result, message = validate_question_format(EXAMPLE_QUIZ)
+    print(result)  # Should print True
+    print(message)  # Should print ""
+    assert result == True
+    assert message == ""
+
+    prefix = os.path.join(SCRIPT_DIR, ".temp")
+
+    # test writing pdf
+    temp_dir_obj = tempfile.TemporaryDirectory(
+        prefix=prefix,
+    )
+    work_dir = temp_dir_obj.name
+    print(f"using workDir = '{work_dir}'")
+    fname = os.path.join(work_dir, "quiz.pdf")
+
+    generate_quiz_pdf(EXAMPLE_QUIZ, fname)
+    import pdb; pdb.set_trace()
