@@ -1,5 +1,6 @@
 import openai
 import streamlit as st
+import os
 
 # Initialize session state variable if not present
 if "mode" not in st.session_state:
@@ -11,14 +12,17 @@ if "button_clicked" not in st.session_state:
 else:
     st.session_state["messages"] = []
 
-with st.sidebar:
-    openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password")
-    "[Get an OpenAI API key](https://platform.openai.com/account/api-keys)"
-    "[View the source code](https://github.com/TheGrandNobody/CLT-Hackathon-2023-Team-CS)"
+openai_api_key = os.environ.get("OPENAI_KEY")
+if openai_api_key is None:
+    with st.sidebar:
+        openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password")
+        "[Get an OpenAI API key](https://platform.openai.com/account/api-keys)"
+        "[View the source code](https://github.com/TheGrandNobody/CLT-Hackathon-2023-Team-CS)"
 
 st.title("📝 Edion Content Generator V1")
 st.caption("🚀 A content-generator made by Edion Management Systems")
 
+# write history of messages
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
 
