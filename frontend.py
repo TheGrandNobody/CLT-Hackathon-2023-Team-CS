@@ -31,7 +31,7 @@ if openai_api_key is None:
         "[View the source code](https://github.com/TheGrandNobody/CLT-Hackathon-2023-Team-CS)"
 
 st.title("📝 Edion Content Generator V1")
-st.caption("🚀 A content-generator made by Edion Management Systems")
+st.caption("made by Edion")
 
 if DEV_MODE:
     st.write("state = ", st.session_state)
