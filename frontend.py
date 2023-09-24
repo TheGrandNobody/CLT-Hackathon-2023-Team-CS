@@ -1,7 +1,6 @@
 import openai
 import streamlit as st
 import os
-import tempfile
 import quiz_utils
 
 DEV_MODE = os.environ.get("DEV") == "1"
